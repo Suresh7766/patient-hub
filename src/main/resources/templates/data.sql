@@ -1,0 +1,13 @@
+--INSERT INTO DOCTOR(fullName, mobileNumber, specialist) VALUES ('Rahul Kumar', 9940332211, 'Heart');
+--INSERT INTO DOCTOR(fullName, mobileNumber, specialist) VALUES ('Prathap Raj', 8840332211, 'Liver');
+--INSERT INTO DOCTOR(fullName, mobileNumber, specialist) VALUES ('Parveen Yadav', 7640332211, 'Heart');
+--INSERT INTO DOCTOR(fullName, mobileNumber, specialist) VALUES ('Yashvanth Kumar', 6750332211, 'Eyes');
+--INSERT INTO DOCTOR(fullName, mobileNumber, specialist) VALUES ('Jai Reddy', 5540332211, 'All Health Issues');
+--
+--
+--
+--INSERT INTO PATIENT(fullName, mobileNumber, specialist) VALUES ('Rahul Kumar', 9940332211, 'Heart');
+--INSERT INTO PATIENT(fullName, mobileNumber, specialist) VALUES ('Prathap Raj', 8840332211, 'Liver');
+--INSERT INTO PATIENT(fullName, mobileNumber, specialist) VALUES ('Parveen Yadav', 7640332211, 'Heart');
+--INSERT INTO PATIENT(fullName, mobileNumber, specialist) VALUES ('Yashvanth Kumar', 6750332211, 'Eyes');
+--INSERT INTO PATIENT(fullName, mobileNumber, specialist) VALUES ('Jai Reddy', 5540332211, 'All Health Issues');
