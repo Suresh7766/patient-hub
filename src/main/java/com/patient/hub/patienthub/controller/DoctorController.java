@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class DoctorController {
     }
 
     @GetMapping("{id}")
+    @Cacheable(value = "doctorCache", key = "#doctorId", condition="#doctorId!=null")
     public ResponseEntity<DoctorDTO> getDoctorById(@PathVariable Integer id) {
         return ResponseEntity.ok(doctorService.getDoctorById(id));
     }
@@ -34,6 +36,7 @@ public class DoctorController {
     }
 
     @GetMapping
+    @Cacheable(value = "doctorCache", key = "#allDoctors", condition="#allDoctors!=null")
     public ResponseEntity<List<DoctorDTO>> getDoctors() {
         return ResponseEntity.ok(doctorService.getDoctors());
     }

@@ -8,6 +8,9 @@ import com.patient.hub.patienthub.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import com.patient.hub.patienthub.exception.ResourceNotFoundException;
+import com.patient.hub.patienthub.exception.ValidationException;
+
 
 import java.util.List;
 
@@ -20,6 +23,9 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public DoctorDTO saveDoctor(DoctorDTO doctorDTO) {
+        if (doctorDTO.getFullName().isEmpty()){
+            throw new ValidationException("Name cannot be empty.");
+        }
         Doctor doctor = new Doctor();
 
         BeanUtils.copyProperties(doctorDTO, doctor, "id");
@@ -41,7 +47,7 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public DoctorDTO getDoctorById(Integer id) {
-        Doctor doctor = doctorRepository.findById(id).orElseThrow(() -> new NotFoundException("Doctor not found!"));
+        Doctor doctor = doctorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Doctor not found!"));
         DoctorDTO doctorDTO = new DoctorDTO();
         BeanUtils.copyProperties(doctor, doctorDTO);
         return doctorDTO;

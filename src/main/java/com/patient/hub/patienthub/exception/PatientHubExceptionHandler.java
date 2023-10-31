@@ -27,4 +27,20 @@ public class PatientHubExceptionHandler {
         errorStatus.getErrorMessages().add(ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorStatus);
     }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorStatus> handle(ResourceNotFoundException ex) {
+        ErrorStatus errorStatus = new ErrorStatus();
+        errorStatus.setStatusCode(404);
+        errorStatus.getErrorMessages().add(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorStatus);
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<Object> handleValidationException(ValidationException ex) {
+        ErrorStatus errorStatus = new ErrorStatus();
+        errorStatus.setStatusCode(400);
+        errorStatus.getErrorMessages().add(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorStatus);
+    }
 }
